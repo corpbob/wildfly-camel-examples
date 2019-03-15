@@ -91,10 +91,9 @@ public class CustomerService {
     }
  
    public void nodb(Exchange exchange){
-     Object o = exchange.getIn().getBody(Customer.class);
-     System.out.println("o is => " + o);
-     Customer c = new Customer(); //exchange.getIn().getBody(Customer.class);
-     c.setFirstName("YYY");
+     Customer = exchange.getIn().getBody(Customer.class);
+     c.setId(1);
+     //c.setFirstName("YYY");
      c.setLastName("XXX");
      exchange.getOut().setBody(c);
    }
