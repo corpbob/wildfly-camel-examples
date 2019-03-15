@@ -89,4 +89,10 @@ public class CustomerService {
             exchange.getOut().setHeader(Exchange.HTTP_RESPONSE_CODE, 404);
         }
     }
+ 
+   public void nodb(Exchange exchange){
+     Customer c = exchange.getIn().getBody(Customer.class);
+     c.setLastName("XXX");
+     exchange.getOut().setBody(c);
+   }
 }
