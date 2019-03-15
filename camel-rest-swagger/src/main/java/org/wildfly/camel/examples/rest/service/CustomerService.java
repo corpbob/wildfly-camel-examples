@@ -92,7 +92,7 @@ public class CustomerService {
  
    public void nodb(Exchange exchange){
      Customer c = exchange.getIn().getBody(Customer.class);
-     c.setId(1);
+     c.setId(1L);
      //c.setFirstName("YYY");
      c.setLastName("XXX");
      exchange.getOut().setBody(c);
