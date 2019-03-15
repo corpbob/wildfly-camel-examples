@@ -73,13 +73,6 @@ public class RestRouteBuilder extends RouteBuilder {
                     .bean(CustomerService.class, "findAll")
                 .endRest()
 
-            .get("/nodb")
-                .description("No database access return modified")
-                .produces(MediaType.APPLICATION_JSON)
-                .route()
-                    .bean(CustomerService.class, "nodb")
-                .endRest()
-
             .get("/{id}")
                 .description("Retrieves a customer for the specified id")
                 .param()
@@ -92,6 +85,15 @@ public class RestRouteBuilder extends RouteBuilder {
                 .route()
                     .bean(CustomerService.class, "findById")
                 .endRest()
+
+            .post("/nodb")
+                .description("No database access return modified")
+                .consumes(MediaType.APPLICATION_JSON)
+                .produces(MediaType.APPLICATION_JSON)
+                .route()
+                    .bean(CustomerService.class, "nodb")
+                .endRest()
+
 
             .post()
                 .description("Creates a new customer")
