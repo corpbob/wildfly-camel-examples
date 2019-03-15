@@ -90,6 +90,7 @@ public class RestRouteBuilder extends RouteBuilder {
                 .description("No database access return modified")
                 .consumes(MediaType.APPLICATION_JSON)
                 .produces(MediaType.APPLICATION_JSON)
+                .type(Customer.class)
                 .route()
                     .bean(CustomerService.class, "nodb")
                 .endRest()
